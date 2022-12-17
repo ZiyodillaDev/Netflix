@@ -1,0 +1,145 @@
+// Loader
+.loader_bg {
+    position: fixed;
+    z-index: 999999999999;
+    background-color: #222222;
+    width: 100%;
+    height: 100%;
+  }
+
+
+  .loader {
+    border: 0 solid transparent;
+    border-radius: 50%;
+    width: 550px;
+    height: 550px;
+    position: absolute;
+    transform: translateX(-50%) translateY(-50%);
+   left: 50%;
+   top: 50%;
+  }
+
+  .loader:before,.loader:after{
+    content: '';
+    background-image: url(../images/netflix.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    width: inherit;
+    height: inherit;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: loader 2s linear infinite;
+    opacity: 0;
+    animation-delay: 5s;
+  }
+
+  .loader:before{
+    animation-delay: .5s;
+  }
+
+  @keyframes loader{
+    0%{
+     transform: scale(0);
+     opacity: 0;
+    }
+    50%{
+     opacity: 1;
+    }
+
+    100%{
+     transform: scale(1);
+     opacity: 1;
+    }
+  }
+
+  // #notifypop { display: none }
+
+  .loading_text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.loading_text div {
+    color: #e40914;
+    font-size: 80px;
+    font-weight: 500;
+    display: inline-block;
+    animation: loading 3s ease-in-out infinite;
+}
+
+.loading_text div:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.loading_text div:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.loading_text div:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.loading_text div:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+.loading_text div:nth-child(5) {
+    animation-delay: 0.4s;
+}
+
+.loading_text div:nth-child(6) {
+    animation-delay: 0.5s;
+}
+
+.loading_text div:nth-child(7) {
+    animation-delay: 0.6s;
+}
+
+@keyframes loading {
+  0%{
+    filter: blur(0);
+    background-position: 0%;
+  }
+  10% {
+        opacity: 0.5;
+        transform:  translateY(-20px);
+    }
+
+    25% {
+        opacity: 1;
+        transform: rotateX(-360deg) translateY(-20px);
+        top: 50px;
+    }
+    50%{
+      filter: blur(25px);
+    }
+
+    80% {
+        opacity: 0;
+        top: 50px;
+        filter: blur(0);
+
+    }
+    100%{
+        opacity: 0;  
+        background-position: 400%;
+        visibility: hidden;
+        filter: blur(0);
+    }
+
+}
+
+// main codes
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  background: #222222;
+}
