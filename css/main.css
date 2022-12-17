@@ -6,6 +6,21 @@
   height: 100%;
 }
 
+#splash {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#splash p {
+  display: inline-block;
+}
+
 .loader {
   border: 0 solid transparent;
   border-radius: 50%;

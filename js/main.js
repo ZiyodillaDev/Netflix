@@ -1,10 +1,3 @@
-var popupsound = document.getElementById("notifypop");
-
-function autoNotify() {
-   popupsound.play(); //play the audio file
-   popupsound.playbackRate = 2;
-}
-
 let elinput = document.querySelector("input");
 let elForm = document.querySelector("form");
 let elList = document.querySelector(".js-list");
