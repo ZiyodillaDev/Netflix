@@ -16,10 +16,10 @@
 
 <body>
     <div class="loader_bg">
-            <audio id="notifypop" autoplay controls  preload="metadata" style="display: none;">
-                <source src="./images/Netflix-Intro-Sound-Effect.mp3" type="audio/mpeg">
-                <source src="./images/Netflix-Intro-Sound-Effect.ogg" type="audio/ogg">
-            </audio>
+        <audio id="notifypop" autoplay controls src="./images/Netflix-Intro-Sound-Effect.mp3" style="display: none;">
+            <!-- <source  type="audio/mpeg"> -->
+            <!-- <source src="./images/Netflix-Intro-Sound-Effect.ogg" type="audio/ogg"> -->
+        </audio>
         <div class="loader"></div>
         <div class="loading_text">
             <div>N</div>
@@ -47,25 +47,25 @@
     <script>
         setTimeout(function () {
             $(".loader_bg").fadeToggle();
+        // const sound = document.querySelector("#notifypop").play()
         }, 2000);
     </script>
     <script>
         var loader = document.querySelector(".loader");
-
         window.addEventListener("load", vanish);
-
+        var sound = document.querySelector("#notifypop").autoplay;
+        // sound = audio.play()
         function vanish() {
             loader.classList.add("dissapear");
         }
     </script>
     <script>
         var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
-if (!isChrome){
-    $('#iframeAudio').remove()
-}
-else {
-    $('#playAudio').remove() // just to make sure that it will not have 2x audio in the background 
-}
+        if (!isChrome) {
+            $('#iframeAudio').remove()
+        } else {
+            $('#playAudio').remove() // just to make sure that it will not have 2x audio in the background 
+        }
     </script>
     <script src="./js/films.js"></script>
     <script src="./js/main.js"></script>
