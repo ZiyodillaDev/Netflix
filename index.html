@@ -16,7 +16,7 @@
 
 <body>
     <div class="loader_bg">
-        <audio controls id="notifypop" src="./images/Netflix-Intro-Sound-Effect.mp3">
+        <audio controls autoplay id="notifypop" src="./images/Netflix-Intro-Sound-Effect.ogg">
         </audio>
         <div class="loader"></div>
         <div class="loading_text">
@@ -51,10 +51,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script>
         var play = document.querySelector("#notifypop")
-        play.style.display = "none"
+        // play.style.display = "none"
         setTimeout(function () {
             $(".loader_bg").fadeToggle();
-            // play.style.display = "block"
+             play = document.createElement("audio")
             play.play()
         }, 2400);
     </script>
