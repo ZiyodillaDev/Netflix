@@ -16,7 +16,7 @@
 
 <body>
     <div class="loader_bg">
-        <audio id="notifypop" autoplay controls src="./images/Netflix-Intro-Sound-Effect.mp3" style="display: none;">
+        <audio controls id="notifypop" src="./images/Netflix-Intro-Sound-Effect.mp3">
         </audio>
         <div class="loader"></div>
         <div class="loading_text">
@@ -35,24 +35,33 @@
         </form>
     </header>
     <main>
-        <select id="js-select" class="form-select w-25 m-auto mb-4">
-            <option value="All">All</option>
-        </select>
+        <div class="d-flex gap-4">
+            <select id="js-select" class="form-select w-25 m-auto mb-4">
+                <option value="All">All</option>
+            </select>
+            <select id="js-sort" class="w-25 form-select m-auto mb-4">
+                <option value="All">All</option>
+                <option value="A-Z">A-Z</option>
+                <option value="Z-A">Z-A</option>
+            </select>
+        </div>
         <ul class="col-12 d-flex flex-wrap justify-content-around gap-4 js-list"></ul>
     </main>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script>
+        var play = document.querySelector("#notifypop")
+        play.style.display = "none"
         setTimeout(function () {
             $(".loader_bg").fadeToggle();
-        const sound = document.querySelector("#notifypop").play()
+            // play.style.display = "block"
+            play.play()
         }, 2400);
     </script>
     <script>
         var loader = document.querySelector(".loader");
         window.addEventListener("load", vanish);
-        var sound = document.querySelector("#notifypop").autoplay;
-        sound = audio.play()
+
         function vanish() {
             loader.classList.add("dissapear");
         }

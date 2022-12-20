@@ -2,6 +2,7 @@ let elinput = document.querySelector("input");
 let elForm = document.querySelector("form");
 let elList = document.querySelector(".js-list");
 let elSelect = document.querySelector("#js-select");
+let elSort = document.querySelector("#js-sort");
 
 let newArr = [];
 
@@ -15,7 +16,6 @@ elForm.addEventListener("input", (evt) => {
     if (el.title.toLocaleLowerCase().includes(elInputVal)) {
       newArr.push(el);
     }
-    // console.log(newArr);
   });
 
   hero(newArr);
@@ -63,7 +63,45 @@ let res = [];
 elSelect.addEventListener("change", (element) => {
   let filterArr = films.filter((film) => {
     let all = element.target.value;
+   if(all != "All"){
     return film.genres.includes(all);
+   }
+    else{
+      location.reload()
+    }  
   });
   hero(filterArr);
+});
+
+let main1 = films.sort((a, b) => {
+  if (elSort.value == "A-Z") {
+    return a.title.charCodeAt(0) - b.title.charCodeAt(0);
+  }
+});
+
+var sortArr = [];
+elSort.addEventListener("change", function () {
+  sortArr = [];
+  if (elSort.value != "All") {
+    films.forEach((item) => {
+      if (elSort.value == "A-Z") {
+        sortArr.push(item);
+        sortArr.sort(
+          (a, b) =>
+            a.title.toLowerCase().charCodeAt(0) -
+            b.title.toLowerCase().charCodeAt(0)
+        );
+      } else {
+        sortArr.push(item);
+        sortArr.sort(
+          (a, b) =>
+            b.title.toLowerCase().charCodeAt(0) -
+            a.title.toLowerCase().charCodeAt(0)
+        );
+      }
+    });
+    hero(sortArr, elList);
+  } else {
+    hero(films, elList);
+  }
 });
